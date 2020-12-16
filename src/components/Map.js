@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 import { LocationOn } from '@material-ui/icons'
+import { computeDistanceBetween, LatLng } from 'spherical-geometry-js'
 
-const Marker = () => <LocationOn style={{ color: '#e61e14', transform: 'scale(1.5)' }} />
+const Marker = ({ style }) => <LocationOn style={{ color: '#e61e14', transform: 'scale(1.5)', ...style }} />
 
 const Map = () => {
     const [currentMarker, setCurrentMarker] = useState({})
@@ -43,10 +44,12 @@ const Map = () => {
         }
     }
 
-    const handleOnClick = ({ x, y, lat, lng, event }) => {
-        console.log(lat, lng)
-
+    const handleOnClick = ({ lat, lng }) => {
         setCurrentMarker({ lat, lng })
+        const distanceBetween = computeDistanceBetween(new LatLng(52.9716, 5.6052), new LatLng(lat, lng))
+        const distanceBetweenInKm =
+            distanceBetween < 1000 ? (distanceBetween / 1000).toFixed(2) : (distanceBetween / 1000).toFixed(0)
+        console.log(`Je zit er ${distanceBetweenInKm} kilometer naast gek!`)
     }
 
     return (
@@ -60,7 +63,7 @@ const Map = () => {
             >
                 <Marker lat={52.9716} lng={5.6052} />
 
-                {currentMarker && <Marker lat={currentMarker.lat} lng={currentMarker.lng} />}
+                {currentMarker && <Marker lat={currentMarker.lat} lng={currentMarker.lng} style={{ color: 'blue' }} />}
             </GoogleMapReact>
         </div>
     )

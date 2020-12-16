@@ -94,15 +94,12 @@ const Map = () => {
         options={defaultProps.options}
         onClick={handleOnClick}
       >
-        {console.log(showAnswer, currentMarker)}
+        {showAnswer && currentMarker && <UserMarker {...currentMarker} />}
         {showAnswer && currentMarker && (
-          <>
-            <UserMarker lat={currentMarker.lat} lng={currentMarker.lng} />
-            <AnswerMarker
-              lat={questionData[currentQuestion].lat}
-              lng={questionData[currentQuestion].long}
-            />
-          </>
+          <AnswerMarker
+            lat={questionData[currentQuestion].lat}
+            lng={questionData[currentQuestion].long}
+          />
         )}
       </GoogleMapReact>
     </div>

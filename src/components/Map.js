@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { LocationOn } from "@material-ui/icons";
 import { computeDistanceBetween, LatLng } from "spherical-geometry-js";
 
+import LeftBar from "./LeftBar";
 import questionData from "../data/data.json";
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+`;
 
 const UserMarker = () => (
   <LocationOn style={{ color: "#e61e14", transform: "scale(1.5)" }} />
@@ -17,16 +25,7 @@ const Map = () => {
   const [currentMarker, setCurrentMarker] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
-
-  // useEffect(() => {
-  //   if (showAnswer) {
-  //     setCurrentMarker(
-  //       questionData[currentQuestion].lat,
-  //       questionData[currentQuestion].long
-  //     );
-  //   } else {
-  //   }
-  // }, [showAnswer, currentQuestion]);
+  const [distance, setDistance] = useState(0);
 
   const defaultProps = {
     center: {
@@ -66,7 +65,6 @@ const Map = () => {
 
   const handleOnClick = ({ x, y, lat, lng, event }) => {
     setShowAnswer(!showAnswer);
-    console.log("answered: ", showAnswer);
     if (!showAnswer) {
       setCurrentMarker({ lat, lng });
       const distanceBetween = computeDistanceBetween(
@@ -76,20 +74,24 @@ const Map = () => {
         ),
         new LatLng(lat, lng)
       );
-      const distanceBetweenInKm =
+      setDistance(
         distanceBetween < 1000
           ? (distanceBetween / 1000).toFixed(2)
-          : (distanceBetween / 1000).toFixed(0);
-      console.log(`Je zit er ${distanceBetweenInKm} kilometer naast gek!`);
+          : (distanceBetween / 1000).toFixed(0)
+      );
     } else {
-      console.log("question #", currentQuestion);
       setCurrentMarker(null);
       setCurrentQuestion(currentQuestion + 1);
     }
   };
 
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
+    <Container>
+      <LeftBar
+        {...questionData[currentQuestion]}
+        distance={distance}
+        showAnswer={showAnswer}
+      />
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8" }}
         defaultCenter={defaultProps.center}
@@ -105,7 +107,7 @@ const Map = () => {
           />
         )}
       </GoogleMapReact>
-    </div>
+    </Container>
   );
 };
 

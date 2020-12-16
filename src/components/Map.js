@@ -70,7 +70,10 @@ const Map = () => {
     if (!showAnswer) {
       setCurrentMarker({ lat, lng });
       const distanceBetween = computeDistanceBetween(
-        new LatLng(52.9716, 5.6052),
+        new LatLng(
+          questionData[currentQuestion].lat,
+          questionData[currentQuestion].long
+        ),
         new LatLng(lat, lng)
       );
       const distanceBetweenInKm =

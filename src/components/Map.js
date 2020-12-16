@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import { LocationOn } from "@material-ui/icons";
+import { computeDistanceBetween, LatLng } from "spherical-geometry-js";
 
 import questionData from "../data/data.json";
 
@@ -68,6 +69,15 @@ const Map = () => {
     console.log("answered: ", showAnswer);
     if (!showAnswer) {
       setCurrentMarker({ lat, lng });
+      const distanceBetween = computeDistanceBetween(
+        new LatLng(52.9716, 5.6052),
+        new LatLng(lat, lng)
+      );
+      const distanceBetweenInKm =
+        distanceBetween < 1000
+          ? (distanceBetween / 1000).toFixed(2)
+          : (distanceBetween / 1000).toFixed(0);
+      console.log(`Je zit er ${distanceBetweenInKm} kilometer naast gek!`);
     } else {
       console.log("question #", currentQuestion);
       setCurrentMarker(null);

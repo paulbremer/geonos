@@ -175,9 +175,7 @@ export default function LeftBar({
         <QuestionContent>
           <Heading>{title}</Heading>
           <SubContent>
-            {showAnswer
-              ? ankeiler
-              : "Weet jij waar het dorp uit dit artikel ligt?"}
+            {showAnswer ? ankeiler : "Waar speelt de volgende nieuwskop af?"}
           </SubContent>
           {showAnswer && (
             <>

@@ -106,6 +106,7 @@ const Heading = styled.h1`
 `;
 
 const SubContent = styled.p`
+  font-family: "Helvetica Neue";
   font-size: 14px;
 `;
 

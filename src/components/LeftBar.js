@@ -40,7 +40,7 @@ const DistanceAnswer = styled.p`
   font-size: 18px;
 `;
 
-export default function LeftBar({ image, title, distance, showAnswer }) {
+export default function LeftBar({ image, title, distance, score, showAnswer }) {
   return (
     <Container>
       <StyledLogoContainer>
@@ -77,6 +77,8 @@ export default function LeftBar({ image, title, distance, showAnswer }) {
             Je zat {distance} km naast de juiste plek.
           </DistanceAnswer>
         )}
+
+        {score && <div>SCORE: {score}</div>}
       </QuestionContainer>
     </Container>
   );

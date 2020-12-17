@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled, { css } from "styled-components";
+import { EmojiObjectsOutlined, LibraryBooksOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
   position: absolute;
@@ -127,15 +129,63 @@ const NextButton = styled.button`
   display: block;
 `;
 
+const ActionButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid #ececec;
+`;
+
+const ActionButtonIcon = styled.div`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  background: #f3f3f0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+`;
+
+const ActionButton = styled.button`
+  background: none;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+
+  &:hover ${ActionButtonIcon} {
+    background-color: #e8e8e4;
+  }
+`;
+
+const Hint = styled.div`
+  padding: 0.5rem;
+  margin: 1rem 0 0;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  background-color: #7affaf;
+`;
+
 export default function LeftBar({
   image,
   title,
   ankeiler,
+  link,
   distance,
   showAnswer,
   setIsQuiz,
   setNextQuestion,
 }) {
+  const [showHint, setShowHint] = useState(false);
+
   return (
     <Container>
       <Header>
@@ -187,11 +237,42 @@ export default function LeftBar({
               <NextButton
                 onClick={() => {
                   setNextQuestion();
+                  setShowHint(false);
                 }}
               >
                 Volgende vraag
               </NextButton>
             </>
+          )}
+
+          <ActionButtons>
+            <ActionButton onClick={() => setShowHint(!showHint)}>
+              <ActionButtonIcon>
+                <EmojiObjectsOutlined />
+              </ActionButtonIcon>
+              <span>Hint</span>
+            </ActionButton>
+
+            {showAnswer && (
+              <ActionButton
+                as={link ? "a" : "button"}
+                href={link}
+                target="_blank"
+                noopener
+                noreferrer
+              >
+                <ActionButtonIcon>
+                  <LibraryBooksOutlined />
+                </ActionButtonIcon>
+                <span>Lees artikel</span>
+              </ActionButton>
+            )}
+          </ActionButtons>
+
+          {showHint && (
+            <Hint>
+              <div>In dit dorp is Nederlands de tweede taal. </div>
+            </Hint>
           )}
         </QuestionContent>
       </QuestionContainer>

@@ -5,6 +5,7 @@ import { LocationOn } from "@material-ui/icons";
 import { computeDistanceBetween, LatLng } from "spherical-geometry-js";
 
 import LeftBar from "./LeftBar";
+import ScoreBox from "./ScoreBox";
 import questionData from "../data/data.json";
 import styles from "../data/styles.json";
 
@@ -64,10 +65,10 @@ const Map = ({ setIsQuiz }) => {
       <LeftBar
         {...questionData[currentQuestion]}
         distance={distance}
-        score={score}
         showAnswer={showAnswer}
         setIsQuiz={setIsQuiz}
       />
+      <ScoreBox score={score} />
       <GoogleMapReact
         bootstrapURLKeys={{
           key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8",

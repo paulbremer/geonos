@@ -29,7 +29,12 @@ const Map = ({ setIsQuiz }) => {
   const defaultProps = {
     center: { lat: 52.1746414, lng: 3.9265093 },
     zoom: 8,
-    options: { styles: styles },
+    options: {
+      styles: styles,
+      zoomControl: false,
+      scaleControl: false,
+      fullscreenControl: false,
+    },
   };
 
   const handleOnClick = (key, childProps) => {

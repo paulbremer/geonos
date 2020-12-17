@@ -27,10 +27,7 @@ const Map = ({ setIsQuiz }) => {
   });
 
   const defaultProps = {
-    center: {
-      lat: 52.090735,
-      lng: 5.12142,
-    },
+    center: { lat: 52.1746414, lng: 3.9265093 },
     zoom: 8,
     options: { styles: styles },
   };

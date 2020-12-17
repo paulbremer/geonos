@@ -1,10 +1,13 @@
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
-  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 380px;
   padding: 12px;
   color: #333;
-  background-color: #a5bbda;
+  z-index: 10;
 `;
 
 const Header = styled.div`

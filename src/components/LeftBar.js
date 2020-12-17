@@ -61,7 +61,6 @@ export default function LeftBar({
   image,
   title,
   distance,
-  score,
   showAnswer,
   setIsQuiz,
 }) {
@@ -105,8 +104,6 @@ export default function LeftBar({
             Je zat {distance} km naast de juiste plek.
           </DistanceAnswer>
         )}
-
-        {score && <div>SCORE: {score}</div>}
       </QuestionContainer>
     </Container>
   );

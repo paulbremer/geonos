@@ -6,6 +6,7 @@ import { computeDistanceBetween, LatLng } from "spherical-geometry-js";
 
 import LeftBar from "./LeftBar";
 import questionData from "../data/data.json";
+import styles from "../data/styles.json";
 
 const Container = styled.div`
   display: flex;
@@ -33,26 +34,7 @@ const Map = ({ setIsQuiz }) => {
       lng: 5.12142,
     },
     zoom: 8,
-    options: {
-      styles: [
-        {
-          featureType: "landscape",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          featureType: "road",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          featureType: "poi",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          elementType: "labels",
-          stylers: [{ visibility: "off" }],
-        },
-      ],
-    },
+    options: { styles: styles },
   };
 
   const handleOnClick = ({ x, y, lat, lng, event }) => {
@@ -89,7 +71,7 @@ const Map = ({ setIsQuiz }) => {
         bootstrapURLKeys={{ key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
-        options={defaultProps.options}
+        {...defaultProps}
         onClick={handleOnClick}
       >
         {showAnswer && currentMarker && <UserMarker {...currentMarker} />}

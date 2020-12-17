@@ -5,6 +5,7 @@ import { LocationOn } from "@material-ui/icons";
 
 import LeftBarAll from "./LeftBarAll";
 import questionData from "../data/data.json";
+import styles from "../data/styles.json";
 
 const Container = styled.div`
   display: flex;
@@ -27,26 +28,7 @@ const Map = ({ setIsQuiz }) => {
       lng: 5.12142,
     },
     zoom: 8,
-    options: {
-      styles: [
-        {
-          featureType: "landscape",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          featureType: "road",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          featureType: "poi",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          elementType: "labels",
-          stylers: [{ visibility: "off" }],
-        },
-      ],
-    },
+    options: { styles: styles },
   };
 
   const handleOnClick = (key, childProps) => {

@@ -32,7 +32,6 @@ const Map = ({ setIsQuiz }) => {
   };
 
   const handleOnClick = (key, childProps) => {
-    console.log("click");
     setSelectedQuestion(childProps);
   };
 

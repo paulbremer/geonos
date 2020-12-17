@@ -28,11 +28,10 @@ const Map = ({ setIsQuiz }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [distance, setDistance] = useState(0);
 
+  const [score, setScore] = useState(0);
+
   const defaultProps = {
-    center: {
-      lat: 52.090735,
-      lng: 5.12142,
-    },
+    center: { lat: 52.090735, lng: 5.12142 },
     zoom: 8,
     options: { styles: styles },
   };
@@ -53,6 +52,7 @@ const Map = ({ setIsQuiz }) => {
           ? (distanceBetween / 1000).toFixed(2)
           : (distanceBetween / 1000).toFixed(0)
       );
+      setScore(score + (500 - distanceBetween / 1000));
     } else {
       setCurrentMarker(null);
       setCurrentQuestion(currentQuestion + 1);
@@ -64,11 +64,14 @@ const Map = ({ setIsQuiz }) => {
       <LeftBar
         {...questionData[currentQuestion]}
         distance={distance}
+        score={score}
         showAnswer={showAnswer}
         setIsQuiz={setIsQuiz}
       />
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8" }}
+        bootstrapURLKeys={{
+          key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8",
+        }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         {...defaultProps}

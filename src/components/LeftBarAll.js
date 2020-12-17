@@ -138,7 +138,7 @@ export default function LeftBar({ setIsQuiz, selectedQuestion }) {
         <Navigation>
           <ListItem onClick={() => setIsQuiz(true)}>Quiz</ListItem>
           <ListItem active onClick={() => setIsQuiz(false)}>
-            Laatste nieuws
+            Nieuwskaart
           </ListItem>
         </Navigation>
       </Header>

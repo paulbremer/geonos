@@ -63,9 +63,6 @@ const Map = ({ setIsQuiz }) => {
       );
       const distanceScore = 500 - distanceInKm;
       setScore(score + (distanceScore > 0 ? distanceScore : 0));
-    } else {
-      //   setCurrentMarker(null);
-      //   setCurrentQuestion(currentQuestion + 1);
     }
   };
 

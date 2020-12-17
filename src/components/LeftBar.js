@@ -100,7 +100,6 @@ const Photo = styled.img`
 
 const Heading = styled.h1`
   font-size: 1.5em;
-  padding-bottom: 1em;
   margin-bottom: 1em;
   margin-top: 0;
   font-size: 20px;
@@ -131,6 +130,7 @@ const NextButton = styled.button`
 export default function LeftBar({
   image,
   title,
+  ankeiler,
   distance,
   showAnswer,
   setIsQuiz,
@@ -174,7 +174,11 @@ export default function LeftBar({
         <Photo src={image} />
         <QuestionContent>
           <Heading>{title}</Heading>
-          <SubContent>Weet jij waar het dorp uit dit artikel ligt?</SubContent>
+          <SubContent>
+            {showAnswer
+              ? ankeiler
+              : "Weet jij waar het dorp uit dit artikel ligt?"}
+          </SubContent>
           {showAnswer && (
             <>
               <DistanceAnswer>

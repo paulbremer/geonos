@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { LibraryBooksOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
   position: absolute;
@@ -17,6 +18,7 @@ const Header = styled.div`
   background-color: white;
   padding: 0em 1em 0 1em;
   border-radius: 3px;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const PreLogoLabel = styled.div`
@@ -67,10 +69,6 @@ const ListItem = styled.li`
   &:first-child {
     margin-right: 1em;
   }
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const QuestionContainer = styled.div`
@@ -82,6 +80,7 @@ const QuestionContainer = styled.div`
   padding: 0em;
   border-radius: 3px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const QuestionContent = styled.div`
@@ -108,6 +107,43 @@ const Heading = styled.h1`
 const SubContent = styled.p`
   font-family: "Helvetica Neue";
   font-size: 14px;
+`;
+
+const ActionButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid #ececec;
+`;
+
+const ActionButtonIcon = styled.div`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  background: #f3f3f0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+`;
+
+const ActionButton = styled.button`
+  background: none;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+
+  &:hover ${ActionButtonIcon} {
+    background-color: #e8e8e4;
+  }
 `;
 
 export default function LeftBar({ setIsQuiz, selectedQuestion }) {
@@ -151,6 +187,22 @@ export default function LeftBar({ setIsQuiz, selectedQuestion }) {
         <QuestionContent>
           <Heading>{title}</Heading>
           <SubContent>{ankeiler}</SubContent>
+          {ankeiler && (
+            <ActionButtons>
+              <ActionButton
+                as="a"
+                href={link}
+                target="_blank"
+                noopener
+                noreferrer
+              >
+                <ActionButtonIcon>
+                  <LibraryBooksOutlined />
+                </ActionButtonIcon>
+                <span>Lees artikel</span>
+              </ActionButton>
+            </ActionButtons>
+          )}
         </QuestionContent>
       </QuestionContainer>
     </Container>

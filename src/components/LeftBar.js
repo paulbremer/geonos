@@ -19,6 +19,7 @@ const Header = styled.div`
   background-color: white;
   padding: 0em 1em 0 1em;
   border-radius: 3px;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const PreLogoLabel = styled.div`
@@ -69,10 +70,6 @@ const ListItem = styled.li`
   &:first-child {
     margin-right: 1em;
   }
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const QuestionContainer = styled.div`
@@ -84,6 +81,7 @@ const QuestionContainer = styled.div`
   padding: 0em;
   border-radius: 3px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const QuestionContent = styled.div`

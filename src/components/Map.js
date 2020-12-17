@@ -16,7 +16,9 @@ const Container = styled.div`
 `;
 
 const UserMarker = () => (
-  <LocationOn style={{ color: "#e61e14", transform: "scale(1.5)" }} />
+  <div style={{ fontSize: "2rem", transform: "translate3d(-15px, -20px, 0)" }}>
+    📍
+  </div>
 );
 
 const AnswerMarker = () => (

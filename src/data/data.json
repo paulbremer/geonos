@@ -6,7 +6,8 @@
     "city": "Heeg",
     "lat": "52.9716",
     "long": "5.6052",
-    "image": "https://cdn.nos.nl/image/2020/12/16/699895/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/16/699895/3200x1800a.jpg",
+    "ankeiler": "Bij een bedrijf in het Friese Heeg dat elektrische boten bouwt, is vannacht brand uitgebroken. Er waren volgens de brandweer geen mensen in het pand toen de brand uitbrak."
   },
   {
     "id": 2360681,
@@ -15,7 +16,8 @@
     "city": "Utrecht",
     "lat": "52.090736",
     "long": "5.121420",
-    "image": "https://cdn.nos.nl/image/2020/12/14/699569/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/14/699569/3200x1800a.jpg",
+    "ankeiler": "De politie doet onderzoek bij een pand aan de Maliebaan in Utrecht na een melding van een verdachte situatie. Het gaat volgens Het Parool om het kantoor van de advocaten Louis de Leon en Yassine Bouchikhi, dat afgelopen nacht zou zijn beschoten."
   },
   {
     "id": 2360837,
@@ -24,7 +26,8 @@
     "city": "Amsterdam",
     "lat": "52.370216",
     "long": "4.895168",
-    "image": "https://cdn.nos.nl/image/2020/12/15/699853/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/15/699853/3200x1800a.jpg",
+    "ankeiler": "Bij de Westermoskee in Amsterdam zijn afgelopen nacht vernielingen aangericht. De moskee denkt dat het niet om vandalisme gaat, maar om vernieling met een haatdragend en islamofoob karakter."
   },
   {
     "id": 2359590,
@@ -33,7 +36,8 @@
     "city": "Dordrecht",
     "lat": "51.811550",
     "long": "4.666360",
-    "image": "https://cdn.nos.nl/image/2020/12/06/697494/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/06/697494/3200x1800a.jpg",
+    "ankeiler": "In de slaapkamer van een woning in Dordrecht heeft de politie een grote hoeveelheid zwaar vuurwerk gevonden en in beslag genomen. De 28-jarige bewoner is aangehouden. Het vuurwerkteam van de politie meldt dat de explosieven op een plek lagen waar warmte en elektriciteit tot spontane ontbranding hadden kunnen leiden, met alle gevolgen van dien voor de bewoner en de omwonenden."
   },
   {
     "id": 2360697,
@@ -42,7 +46,8 @@
     "city": "Vianen",
     "lat": "51.990276",
     "long": "5.103033",
-    "image": "https://cdn.nos.nl/image/2020/12/14/699598/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/14/699598/3200x1800a.jpg",
+    "ankeiler": "In het massagraf dat vorige maand werd ontdekt in Vianen zijn inmiddels 71 skeletten gevonden. Het gaat volgens de gemeente waarschijnlijk om slachtoffers van een veldslag ten tijde van de Stichtse Oorlog of Tachtigjarige Oorlog."
   },
   {
     "id": 2359451,
@@ -51,7 +56,8 @@
     "city": "Urk",
     "lat": "52.6631",
     "long": "5.5989",
-    "image": "https://cdn.nos.nl/image/2020/12/06/697207/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/06/697207/3200x1800a.jpg",
+    "ankeiler": "De politie doet onderzoek bij een pand aan de Maliebaan in Utrecht na een melding van een verdachte situatie. Het gaat volgens Het Parool om het kantoor van de advocaten Louis de Leon en Yassine Bouchikhi, dat afgelopen nacht zou zijn beschoten."
   },
   {
     "id": 2360599,
@@ -60,7 +66,8 @@
     "city": "Huissen",
     "lat": "51.9357323",
     "long": "5.9342586",
-    "image": "https://cdn.nos.nl/image/2020/12/14/699421/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/14/699421/3200x1800a.jpg",
+    "ankeiler": "Een 44-jarige man wordt ervan verdacht in een aantal Gelderse gemeenten ten minste negen auto-inbraken te hebben gepleegd. De verdachte werd door de politie de 'autovoeler' genoemd vanwege zijn manier van werken, schrijft Omroep Gelderland. De man voelde of een auto was afgesloten. Wanneer dat niet het geval was sloeg hij zijn slag."
   },
   {
     "id": 2360413,
@@ -69,7 +76,8 @@
     "city": "Nieuwlande",
     "lat": "52.701890",
     "long": "6.643720",
-    "image": "https://cdn.nos.nl/image/2020/12/13/699045/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/13/699045/3200x1800a.jpg",
+    "ankeiler": "Aan het eind van het herdenkingsjaar 75 jaar bevrijding komt het NOS Bevrijdingsjournaal nog één keer terug met een extra lange aflevering. Met daarin de vraag hoe het een aantal hoofdrolspelers uit de Bevrijdingsjournaals van het afgelopen jaar na de oorlog is vergaan. Hoe slaagden zij erin hun leven weer op te pakken?"
   },
   {
     "id": 2352405,
@@ -78,7 +86,8 @@
     "city": "Den Haag",
     "lat": "52.080190",
     "long": "4.310130",
-    "image": "https://cdn.nos.nl/image/2020/10/15/683394/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/10/15/683394/3200x1800a.jpg",
+    "ankeiler": "Ik kan niet recht praten wat krom is, maar voor mijn gevoel wordt het heel erg uit zijn verband getrokken, zegt John Prins, de eigenaar van café-restaurant Luden in Den Haag, tegen de NOS. Voor zijn zaak op het Plein stonden gisteravond feestgangers te hossen."
   },
   {
     "id": 2360481,
@@ -87,6 +96,7 @@
     "city": "Best",
     "lat": "51.512160",
     "long": "5.392890",
-    "image": "https://cdn.nos.nl/image/2020/12/13/699193/3200x1800a.jpg"
+    "image": "https://cdn.nos.nl/image/2020/12/13/699193/3200x1800a.jpg",
+    "ankeiler": "Een explosie heeft vannacht flinke schade veroorzaakt aan twee woningen in Best. Een van de bewoners is een agent uit de eenheid Oost-Brabant, de politie sluit een gerichte actie niet uit."
   }
 ]

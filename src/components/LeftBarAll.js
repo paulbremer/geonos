@@ -85,6 +85,7 @@ const QuestionContent = styled.div`
   padding: 1em;
   border-bottom: solid 1px #ccc;
   box-sizing: border-box;
+  width: 100%;
 `;
 const Photo = styled.img`
   width: 100%;
@@ -95,10 +96,10 @@ const Photo = styled.img`
 
 const Heading = styled.h1`
   font-size: 1.5em;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
+  padding-bottom: 0;
   margin-top: 0;
   font-size: 20px;
+  box-sizing: border-box;
 `;
 
 const SubContent = styled.p`
@@ -106,7 +107,7 @@ const SubContent = styled.p`
 `;
 
 export default function LeftBar({ setIsQuiz, selectedQuestion }) {
-  const { image, title, link } = selectedQuestion;
+  const { image, title, ankeiler, link } = selectedQuestion;
   return (
     <Container>
       <Header>
@@ -145,6 +146,7 @@ export default function LeftBar({ setIsQuiz, selectedQuestion }) {
         <Photo src={image} />
         <QuestionContent>
           <Heading>{title}</Heading>
+          <SubContent>{ankeiler}</SubContent>
         </QuestionContent>
       </QuestionContainer>
     </Container>

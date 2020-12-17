@@ -17,6 +17,10 @@ const UserMarker = () => (
   <LocationOn style={{ color: "#e61e14", transform: "scale(1.5)" }} />
 );
 
+const ActiveUserMarker = () => (
+  <LocationOn style={{ color: "#6A1E1B", transform: "scale(1.5)" }} />
+);
+
 const Map = ({ setIsQuiz }) => {
   const [selectedQuestion, setSelectedQuestion] = useState({
     title: "Selecteer een locatie om te lezen wat er heeft plaatsgevonden",
@@ -46,7 +50,13 @@ const Map = ({ setIsQuiz }) => {
         onChildClick={handleOnClick}
       >
         {questionData.map((question) => {
-          return (
+          return question.id === selectedQuestion.id ? (
+            <ActiveUserMarker
+              lat={question.lat}
+              lng={question.long}
+              {...question}
+            />
+          ) : (
             <UserMarker lat={question.lat} lng={question.long} {...question} />
           );
         })}

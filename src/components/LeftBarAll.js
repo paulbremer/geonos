@@ -78,11 +78,13 @@ const QuestionContainer = styled.div`
   background-color: white;
   padding: 0em;
   border-radius: 3px;
+  box-sizing: border-box;
 `;
 
 const QuestionContent = styled.div`
   padding: 1em;
   border-bottom: solid 1px #ccc;
+  box-sizing: border-box;
 `;
 const Photo = styled.img`
   width: 100%;

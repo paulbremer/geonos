@@ -78,12 +78,16 @@ const QuestionContainer = styled.div`
   background-color: white;
   padding: 0em;
   border-radius: 3px;
+  box-sizing: border-box;
 `;
 
 const QuestionContent = styled.div`
+  width: 100%;
   padding: 1em;
   border-bottom: solid 1px #ccc;
+  box-sizing: border-box;
 `;
+
 const Photo = styled.img`
   width: 100%;
   height: auto;
@@ -100,11 +104,12 @@ const Heading = styled.h1`
 `;
 
 const SubContent = styled.p`
+  font-family: "Helvetica Neue";
   font-size: 14px;
 `;
 
 const DistanceAnswer = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
 `;
 

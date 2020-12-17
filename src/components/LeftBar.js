@@ -71,30 +71,53 @@ const ListItem = styled.li`
 `;
 
 const QuestionContainer = styled.div`
-  margin-top: 3em;
+  margin-top: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: white;
+  padding: 0em;
+  border-radius: 3px;
 `;
 
-const Intro = styled.p`
-  margin: 1em 0;
-  font-size: 1.2em;
-  font-weight: bold;
+const QuestionContent = styled.div`
+  padding: 1em;
+  border-bottom: solid 1px #ccc;
 `;
-
 const Photo = styled.img`
-  margin-bottom: 1em;
   width: 100%;
   height: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 `;
 
 const Heading = styled.h1`
   font-size: 1.5em;
   padding-bottom: 1em;
   margin-bottom: 1em;
-  border-bottom: solid 1px #ccc;
+  margin-top: 0;
+  font-size: 20px;
+`;
+
+const SubContent = styled.p`
+  font-size: 14px;
 `;
 
 const DistanceAnswer = styled.p`
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+const NextButton = styled.button`
+  font-size: 16px;
+  background-color: #e61e14;
+  border-radius: 20px;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 0 auto;
+  display: block;
 `;
 
 export default function LeftBar({
@@ -103,6 +126,7 @@ export default function LeftBar({
   distance,
   showAnswer,
   setIsQuiz,
+  setNextQuestion,
 }) {
   return (
     <Container>
@@ -139,16 +163,25 @@ export default function LeftBar({
         </Navigation>
       </Header>
       <QuestionContainer>
-        <Intro>
-          Klik op de kaart waar onderstaand bericht heeft plaatsgevonden:
-        </Intro>
         <Photo src={image} />
-        <Heading>{title}</Heading>
-        {showAnswer && (
-          <DistanceAnswer>
-            Je zat {distance} km naast de juiste plek.
-          </DistanceAnswer>
-        )}
+        <QuestionContent>
+          <Heading>{title}</Heading>
+          <SubContent>Weet jij waar het dorp uit dit artikel ligt?</SubContent>
+          {showAnswer && (
+            <>
+              <DistanceAnswer>
+                Je zat {distance} km naast de juiste plek.
+              </DistanceAnswer>
+              <NextButton
+                onClick={() => {
+                  setNextQuestion();
+                }}
+              >
+                Volgende vraag
+              </NextButton>
+            </>
+          )}
+        </QuestionContent>
       </QuestionContainer>
     </Container>
   );

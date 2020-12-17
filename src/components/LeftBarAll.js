@@ -70,21 +70,37 @@ const ListItem = styled.li`
   }
 `;
 
+const QuestionContainer = styled.div`
+  margin-top: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: white;
+  padding: 0em;
+  border-radius: 3px;
+`;
+
+const QuestionContent = styled.div`
+  padding: 1em;
+  border-bottom: solid 1px #ccc;
+`;
 const Photo = styled.img`
-  margin-bottom: 1em;
   width: 100%;
   height: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 `;
 
 const Heading = styled.h1`
   font-size: 1.5em;
   padding-bottom: 1em;
   margin-bottom: 1em;
-  border-bottom: solid 1px #ccc;
+  margin-top: 0;
+  font-size: 20px;
 `;
 
-const QuestionContainer = styled.div`
-  margin-top: 3em;
+const SubContent = styled.p`
+  font-size: 14px;
 `;
 
 export default function LeftBar({ setIsQuiz, selectedQuestion }) {
@@ -125,7 +141,9 @@ export default function LeftBar({ setIsQuiz, selectedQuestion }) {
       </Header>
       <QuestionContainer>
         <Photo src={image} />
-        <Heading>{title}</Heading>
+        <QuestionContent>
+          <Heading>{title}</Heading>
+        </QuestionContent>
       </QuestionContainer>
     </Container>
   );

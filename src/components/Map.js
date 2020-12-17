@@ -38,8 +38,8 @@ const Map = ({ setIsQuiz }) => {
   };
 
   const handleOnClick = ({ x, y, lat, lng, event }) => {
-    setShowAnswer(!showAnswer);
     if (!showAnswer) {
+      setShowAnswer(!showAnswer);
       setCurrentMarker({ lat, lng });
       const distanceBetween = computeDistanceBetween(
         new LatLng(
@@ -55,9 +55,15 @@ const Map = ({ setIsQuiz }) => {
       );
       setScore(score + (500 - distanceBetween / 1000));
     } else {
-      setCurrentMarker(null);
-      setCurrentQuestion(currentQuestion + 1);
+      //   setCurrentMarker(null);
+      //   setCurrentQuestion(currentQuestion + 1);
     }
+  };
+
+  const setNewQuestion = () => {
+    setShowAnswer(!showAnswer);
+    setCurrentMarker(null);
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   return (
@@ -67,6 +73,7 @@ const Map = ({ setIsQuiz }) => {
         distance={distance}
         showAnswer={showAnswer}
         setIsQuiz={setIsQuiz}
+        setNextQuestion={setNewQuestion}
       />
       <ScoreBox score={score} />
       <GoogleMapReact

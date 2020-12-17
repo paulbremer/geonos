@@ -48,12 +48,14 @@ const Map = ({ setIsQuiz }) => {
         ),
         new LatLng(lat, lng)
       );
+      const distanceInKm = distanceBetween / 1000;
       setDistance(
         distanceBetween < 1000
-          ? (distanceBetween / 1000).toFixed(2)
-          : (distanceBetween / 1000).toFixed(0)
+          ? distanceInKm.toFixed(2)
+          : distanceInKm.toFixed(0)
       );
-      setScore(score + (500 - distanceBetween / 1000));
+      const distanceScore = 500 - distanceInKm;
+      setScore(score + (distanceScore > 0 ? distanceScore : 0));
     } else {
       setCurrentMarker(null);
       setCurrentQuestion(currentQuestion + 1);

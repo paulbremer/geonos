@@ -44,17 +44,13 @@ const Map = () => {
           stylers: [{ visibility: "off" }],
         },
         {
-          featureType: "administrative",
-          stylers: [{ visibility: "off" }],
-        },
-        {
           featureType: "poi",
           stylers: [{ visibility: "off" }],
         },
-        {
-          featureType: "administrative",
-          stylers: [{ visibility: "off" }],
-        },
+        // {
+        //   featureType: "administrative",
+        //   stylers: [{ visibility: "off" }],
+        // },
         {
           elementType: "labels",
           stylers: [{ visibility: "off" }],

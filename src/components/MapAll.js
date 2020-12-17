@@ -13,9 +13,17 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const UserMarker = () => (
-  <LocationOn style={{ color: "#e61e14", transform: "scale(1.5)" }} />
-);
+const UserIcon = styled(LocationOn)`
+  color: #e61e14;
+  transform: scale(1.5);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.7);
+  }
+`;
+
+const UserMarker = () => <UserIcon />;
 
 const ActiveUserMarker = () => (
   <LocationOn style={{ color: "#6A1E1B", transform: "scale(1.5)" }} />

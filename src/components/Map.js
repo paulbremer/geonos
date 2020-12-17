@@ -15,11 +15,12 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const UserMarker = () => (
-  <div style={{ fontSize: "2rem", transform: "translate3d(-15px, -20px, 0)" }}>
-    📍
-  </div>
-);
+const UserIcon = styled.div`
+  font-size: 2rem;
+  transform: translate3d(-15px, -20px, 0);
+`;
+
+const UserMarker = () => <UserIcon>📍</UserIcon>;
 
 const AnswerMarker = () => (
   <LocationOn style={{ color: "blue", transform: "scale(1.5)" }} />

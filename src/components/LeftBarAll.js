@@ -30,16 +30,6 @@ const ListItem = styled.li`
   }
 `;
 
-const QuestionContainer = styled.div`
-  margin-top: 3em;
-`;
-
-const Intro = styled.p`
-  margin: 1em 0;
-  font-size: 1.2em;
-  font-weight: bold;
-`;
-
 const Photo = styled.img`
   margin-bottom: 1em;
   width: 100%;
@@ -53,17 +43,12 @@ const Heading = styled.h1`
   border-bottom: solid 1px #ccc;
 `;
 
-const DistanceAnswer = styled.p`
-  font-size: 18px;
+const QuestionContainer = styled.div`
+  margin-top: 3em;
 `;
 
-export default function LeftBar({
-  image,
-  title,
-  distance,
-  showAnswer,
-  setIsQuiz,
-}) {
+export default function LeftBar({ setIsQuiz, selectedQuestion }) {
+  const { image, title, link } = selectedQuestion;
   return (
     <Container>
       <StyledLogoContainer>
@@ -94,16 +79,8 @@ export default function LeftBar({
         <ListItem onClick={() => setIsQuiz(false)}>Laatste nieuws</ListItem>
       </Navigation>
       <QuestionContainer>
-        <Intro>
-          Klik op de kaart waar onderstaand bericht heeft plaatsgevonden:
-        </Intro>
         <Photo src={image} />
         <Heading>{title}</Heading>
-        {showAnswer && (
-          <DistanceAnswer>
-            Je zat {distance} km naast de juiste plek.
-          </DistanceAnswer>
-        )}
       </QuestionContainer>
     </Container>
   );

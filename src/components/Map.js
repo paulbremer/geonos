@@ -21,7 +21,7 @@ const AnswerMarker = () => (
   <LocationOn style={{ color: "blue", transform: "scale(1.5)" }} />
 );
 
-const Map = () => {
+const Map = ({ setIsQuiz }) => {
   const [currentMarker, setCurrentMarker] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -47,10 +47,6 @@ const Map = () => {
           featureType: "poi",
           stylers: [{ visibility: "off" }],
         },
-        // {
-        //   featureType: "administrative",
-        //   stylers: [{ visibility: "off" }],
-        // },
         {
           elementType: "labels",
           stylers: [{ visibility: "off" }],
@@ -87,6 +83,7 @@ const Map = () => {
         {...questionData[currentQuestion]}
         distance={distance}
         showAnswer={showAnswer}
+        setIsQuiz={setIsQuiz}
       />
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyCJv6V543b8UX1weC67yJzZsJ3GBIbXJu8" }}

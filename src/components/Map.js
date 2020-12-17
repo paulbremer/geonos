@@ -28,6 +28,7 @@ const AnswerMarker = () => (
 const Map = ({ setIsQuiz }) => {
   const [currentMarker, setCurrentMarker] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [quizEnd, setQuizEnd] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [distance, setDistance] = useState(0);
 
@@ -69,7 +70,11 @@ const Map = ({ setIsQuiz }) => {
   const setNewQuestion = () => {
     setShowAnswer(!showAnswer);
     setCurrentMarker(null);
-    setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion === questionData.length - 1) {
+      setQuizEnd(true);
+    } else {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   };
 
   return (
@@ -79,6 +84,8 @@ const Map = ({ setIsQuiz }) => {
         distance={distance}
         showAnswer={showAnswer}
         setIsQuiz={setIsQuiz}
+        score={score}
+        quizEnd={quizEnd}
         setNextQuestion={setNewQuestion}
       />
       <ScoreBox score={score} />

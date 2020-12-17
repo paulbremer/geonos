@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
+import CountUp from "react-countup";
 import { EmojiObjectsOutlined, LibraryBooksOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -172,6 +173,36 @@ const Hint = styled.div`
   background-color: #7affaf;
 `;
 
+const QuizEndContainer = styled.div`
+  margin-top: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: white;
+  padding: 0em;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
+
+  img {
+    max-width: 100%;
+  }
+
+  div {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+    margin: 1rem auto 0;
+  }
+
+  ${CountUp} {
+    font-size: 1.1rem;
+  }
+`;
+
 export default function LeftBar({
   image,
   title,
@@ -180,6 +211,8 @@ export default function LeftBar({
   distance,
   showAnswer,
   setIsQuiz,
+  quizEnd,
+  score,
   setNextQuestion,
 }) {
   const [showHint, setShowHint] = useState(false);
@@ -218,60 +251,78 @@ export default function LeftBar({
           <ListItem onClick={() => setIsQuiz(false)}>Nieuwskaart</ListItem>
         </Navigation>
       </Header>
-      <QuestionContainer>
-        <Photo src={image} />
-        <QuestionContent>
-          <Heading>{title}</Heading>
-          <SubContent>
-            {showAnswer ? ankeiler : "Waar speelt de volgende nieuwskop af?"}
-          </SubContent>
-          {showAnswer && (
-            <>
-              <DistanceAnswer>
-                Je zat {distance} km naast de juiste plek.
-              </DistanceAnswer>
-              <NextButton
-                onClick={() => {
-                  setNextQuestion();
-                  setShowHint(false);
-                }}
-              >
-                Volgende vraag
-              </NextButton>
-            </>
-          )}
 
-          <ActionButtons>
-            <ActionButton onClick={() => setShowHint(!showHint)}>
-              <ActionButtonIcon>
-                <EmojiObjectsOutlined />
-              </ActionButtonIcon>
-              <span>Hint</span>
-            </ActionButton>
-
+      {!quizEnd && (
+        <QuestionContainer>
+          <Photo src={image} />
+          <QuestionContent>
+            <Heading>{title}</Heading>
+            <SubContent>
+              {showAnswer ? ankeiler : "Waar speelt de volgende nieuwskop af?"}
+            </SubContent>
             {showAnswer && (
-              <ActionButton
-                as={link ? "a" : "button"}
-                href={link}
-                target="_blank"
-                noopener
-                noreferrer
-              >
-                <ActionButtonIcon>
-                  <LibraryBooksOutlined />
-                </ActionButtonIcon>
-                <span>Lees artikel</span>
-              </ActionButton>
+              <>
+                <DistanceAnswer>
+                  Je zat {distance} km naast de juiste plek.
+                </DistanceAnswer>
+                <NextButton
+                  onClick={() => {
+                    setNextQuestion();
+                    setShowHint(false);
+                  }}
+                >
+                  Volgende vraag
+                </NextButton>
+              </>
             )}
-          </ActionButtons>
 
-          {showHint && (
-            <Hint>
-              <div>In dit dorp is Nederlands de tweede taal. </div>
-            </Hint>
-          )}
-        </QuestionContent>
-      </QuestionContainer>
+            <ActionButtons>
+              <ActionButton onClick={() => setShowHint(!showHint)}>
+                <ActionButtonIcon>
+                  <EmojiObjectsOutlined />
+                </ActionButtonIcon>
+                <span>Hint</span>
+              </ActionButton>
+
+              {showAnswer && (
+                <ActionButton
+                  as={link ? "a" : "button"}
+                  href={link}
+                  target="_blank"
+                  noopener
+                  noreferrer
+                >
+                  <ActionButtonIcon>
+                    <LibraryBooksOutlined />
+                  </ActionButtonIcon>
+                  <span>Lees artikel</span>
+                </ActionButton>
+              )}
+            </ActionButtons>
+
+            {showHint && (
+              <Hint>
+                <div>In dit dorp is Nederlands de tweede taal. </div>
+              </Hint>
+            )}
+          </QuestionContent>
+        </QuestionContainer>
+      )}
+
+      {quizEnd && (
+        <QuizEndContainer>
+          <img
+            src="https://media.giphy.com/media/QaN6eYS5k4nja/giphy-downsized.gif"
+            alt="WINNING"
+          />
+          <div>
+            <h4>EINDE VAN DE QUIZ! 🎉</h4>
+            <div>
+              Je eindscore is <CountUp end={score} duration={2} /> punten!
+            </div>
+          </div>
+        </QuizEndContainer>
+      )}
     </Container>
   );
 }
